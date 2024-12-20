@@ -1,0 +1,21 @@
+line-length = 120
+target-version = "py311"
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "lf"
+
+[lint]
+select = ["ALL"]
+ignore = ["D", "T20", "ANN", "FBT", "RUF009", "S104", "COM812", "ISC001", "INP001"]
+exclude = ["venv/*", "migrations/*"]
+
+[lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+known-first-party = ["config", "routes", "schemas", "models", "constants", "app_types", "run", "main"]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]  # Ignore unused imports in __init__.py files

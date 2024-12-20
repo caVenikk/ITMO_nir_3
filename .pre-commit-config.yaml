@@ -1,0 +1,48 @@
+repos:
+  # Common hooks for both frontend and backend
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: [--fix=lf]
+        exclude: ^frontend/tsconfig.*.json
+
+  # Backend hooks
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: ruff-format
+        entry: ruff format --config=backend/ruff.toml
+        files: ^backend/
+        language: system
+        types_or: [python]
+      - id: ruff
+        name: ruff
+        entry: ruff check --config=backend/ruff.toml --fix
+        files: ^backend/
+        language: system
+        types_or: [python]
+
+  # Frontend hooks
+  - repo: local
+    hooks:
+      - id: frontend-format
+        name: frontend-format
+        entry: bash -c 'cd frontend && npm run format'
+        language: system
+        files: ^frontend/
+        types_or: [javascript, jsx, ts, tsx, vue, css, scss, json]
+        pass_filenames: false
+
+      - id: frontend-lint
+        name: frontend-lint
+        entry: bash -c 'cd frontend && npm run lint'
+        language: system
+        files: ^frontend/
+        types_or: [javascript, jsx, ts, tsx, vue]
+        pass_filenames: false

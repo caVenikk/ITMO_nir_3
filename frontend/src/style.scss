@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito");
+
+// Variables
+:root {
+    // Colors
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+    --color-text: #1e293b;
+    --color-text-light: #64748b;
+    --color-border: #e2e8f0;
+    --color-hover: #f1f5f9;
+
+    // Shadows
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+    // Typography
+    --font-sans: Nunito, system-ui, -apple-system, sans-serif;
+
+    // Spacing
+    --spacing-page: 1.5rem;
+    --spacing-element: 1rem;
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #0f172a;
+        --color-surface: #1e293b;
+        --color-text: #f1f5f9;
+        --color-text-light: #94a3b8;
+        --color-border: #334155;
+        --color-hover: #1e293b;
+    }
+}
+
+// Reset & Base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+// Typography
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-element);
+    color: var(--color-text);
+}
+
+// Layout
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-page);
+}
+
+// Responsive
+@media (max-width: 640px) {
+    :root {
+        --spacing-page: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+* {
+    scrollbar-width: thin; // Firefox
+    scrollbar-color: var(--color-border) transparent; // Firefox
+
+    // Chrome, Edge, Safari
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--color-border);
+        border-radius: 4px;
+        border: 2px solid var(--color-background);
+
+        &:hover {
+            background-color: var(--color-text-light);
+        }
+
+        &:active {
+            background-color: var(--color-text);
+        }
+    }
+
+    &::-webkit-scrollbar-thumb:vertical:hover,
+    &::-webkit-scrollbar-thumb:horizontal:hover {
+        background-color: var(--color-text-light);
+    }
+}
+
+.metrics-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.metrics-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+}
