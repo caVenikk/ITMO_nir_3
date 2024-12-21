@@ -44,7 +44,6 @@ const toggle = (name: string) => {
     }
 };
 
-// Provide methods to child components
 const accordionContext = {
     isOpen,
     toggle,

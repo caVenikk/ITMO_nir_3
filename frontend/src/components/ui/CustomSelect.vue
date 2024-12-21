@@ -1,4 +1,3 @@
-//CustomSelect.vue
 <script setup lang="ts">
 import { computed, nextTick, ref, type SelectHTMLAttributes, watch } from "vue";
 import { useSelectDropdown } from "@/composables/useSelectDropdown";
@@ -234,7 +233,6 @@ const clearSearchOnClose = () => {
     searchQuery.value = "";
 };
 
-// Add watcher for other selects
 watch(shouldClose, (should) => {
     if (should && isOpen.value) {
         closeDropdown();
@@ -516,7 +514,6 @@ watch(shouldClose, (should) => {
         color: #dc2626;
     }
 
-    // Size variants
     &--small {
         .custom-select__control {
             padding: calc(var(--spacing-element) * 0.25) calc(var(--spacing-element) * 0.75);
@@ -531,7 +528,6 @@ watch(shouldClose, (should) => {
         }
     }
 
-    // States
     &--disabled {
         opacity: 0.5;
         cursor: not-allowed;
@@ -565,7 +561,6 @@ watch(shouldClose, (should) => {
         }
     }
 
-    // Dropdown animation
     .dropdown-enter-active,
     .dropdown-leave-active {
         transition: all 0.2s ease;
@@ -577,7 +572,6 @@ watch(shouldClose, (should) => {
         transform: translateY(-10px);
     }
 
-    // Option animation
     .option-enter-active,
     .option-leave-active {
         transition: all 0.15s ease;
@@ -589,7 +583,6 @@ watch(shouldClose, (should) => {
         transform: translateX(-10px);
     }
 
-    // Smooth transitions for interactive elements
     &__control {
         transition: all 0.2s ease;
     }
@@ -611,14 +604,12 @@ watch(shouldClose, (should) => {
         transition: color 0.15s ease;
     }
 
-    // Hover animations
     &__option {
         &:hover:not(.is-disabled) {
             transition: all 0.15s ease;
         }
     }
 
-    // Focus animation
     &--focused {
         .custom-select__control {
             transition: all 0.2s ease;

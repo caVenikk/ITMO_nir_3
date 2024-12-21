@@ -10,7 +10,6 @@ interface AccordionItemProps {
 
 defineProps<AccordionItemProps>();
 
-// Inject methods from parent
 const { isOpen, toggle } = inject("accordion") as {
     isOpen: (name: string) => boolean;
     toggle: (name: string) => void;

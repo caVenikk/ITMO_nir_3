@@ -14,7 +14,6 @@ const sortDirection = ref<"asc" | "desc">("asc");
 
 const uniqueTools = computed(() => [...new Set(store.metrics.map((m) => m.tool)).values()].sort());
 
-// First apply filter, then sort
 const filteredMetrics = computed(() => {
     if (toolFilter.value.size === 0) return store.metrics;
     return store.metrics.filter((m) => toolFilter.value.has(m.tool));
@@ -38,7 +37,7 @@ const toggleToolFilter = (tool: string) => {
     } else {
         toolFilter.value.add(tool);
     }
-    toolFilter.value = new Set(toolFilter.value); // Trigger reactivity
+    toolFilter.value = new Set(toolFilter.value);
 };
 
 const columns = [
@@ -87,12 +86,11 @@ const handleFilterClick = (event: Event) => {
     if (showToolFilter.value && filterContainer.value) {
         const rect = filterContainer.value.getBoundingClientRect();
         const windowWidth = window.innerWidth;
-        const dropdownWidth = 180; // Same as width in CSS
+        const dropdownWidth = 180;
 
-        // Adjust left position to prevent overflow
         let leftPos = rect.left;
         if (leftPos + dropdownWidth > windowWidth) {
-            leftPos = windowWidth - dropdownWidth - 16; // 16px margin from right
+            leftPos = windowWidth - dropdownWidth - 16;
         }
 
         dropdownStyle.value = {

@@ -288,7 +288,6 @@ const prevPage = () => {
     }
 }
 
-// Animations
 .sort-icon-enter-active,
 .sort-icon-leave-active {
     transition: all 0.2s ease;

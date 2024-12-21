@@ -160,7 +160,6 @@ const variantConfig = {
     }
 }
 
-// Transition animations
 .error-box-enter-active,
 .error-box-leave-active {
     transition: all 0.3s ease;
